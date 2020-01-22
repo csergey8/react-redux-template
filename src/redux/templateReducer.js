@@ -23,3 +23,10 @@ export const templateReducer = (state = initialState, type) => {
 export const initAction = () => ({
     type: types.INIT_ACTION
 })
+
+export const initThunk = () => async (dispatch, getState) => {
+  await setTimeout(() => {
+    dispatch(initAction())
+  }, 5000)
+}
+

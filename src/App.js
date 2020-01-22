@@ -1,24 +1,31 @@
 import React from 'react';
-import './App.css';
+import { Home } from './components/Home';
+import { About } from './components/About';
+import { NotFound } from './components/404';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
-function App() {
+import { createBrowserHistory } from "history";
+
+const history = createBrowserHistory();
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Link to="/about">About</Link>
+            <Link to="/abouasdasdast">About</Link>
+            <Link to="/">Home</Link>
+      <Switch>
+      <Route path="/" exact>
+           <Home />
+        </Route>
+        <Route path="/about" exact>
+          <About />
+        </Route>
+        
+        <Route component={NotFound} path={"*"} exact />
+      </Switch> 
+    </BrowserRouter> 
   );
 }
 
-export default App;
+export { App };
