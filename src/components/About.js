@@ -1,13 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import React from 'react';
+import { Link, Route, withRouter } from 'react-router-dom';
+import Nested from './Nested';
 
-const About = () => {
+const About = (props) => {
     return (
         <div>
-        <Link to="/">Home</Link>
-            About
+        <Link to={`${props.match.url}/test`}>Nested</Link>
+        <Route path={`${props.match.url}/:id`} component={Nested} />
         </div>
     )
 }
 
-export { About }
+const AboutWithRouter = withRouter(About)
+
+export { AboutWithRouter as About }

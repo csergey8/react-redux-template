@@ -9,8 +9,7 @@ const Home = (props) => {
     return (
         <div>
             Home
-            <Link to="/about">About</Link>
-            <Link to="/abouasdasdast">About</Link>
+            <Link to="/about/test">About</Link>
         </div>
     )
 }
